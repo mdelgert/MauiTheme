@@ -1,0 +1,19 @@
+﻿@page "/test"
+
+<PageTitle>Test</PageTitle>
+
+<h1>Test</h1>
+
+<p role="status">Message: @message</p>
+
+<button class="btn btn-primary" @onclick='() => PassMessage("hello")'>Click</button>
+
+@code {
+    private string message = string.Empty;
+
+    private void PassMessage(string msg)
+
+    {
+        message = msg;
+    }
+}

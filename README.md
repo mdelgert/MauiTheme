@@ -1,5 +1,11 @@
 # MauiTheme Project
 
+## Links
+- [bootswatch-source](https://github.com/thomaspark/bootswatch)
+- [bootswatch-main](https://bootswatch.com/)
+- [blazostrap](blazorstrap.io)
+- [bootstrap](https://getbootstrap.com/)
+
 ## Overview
 MauiTheme is a .NET MAUI project designed to demonstrate theming capabilities in cross-platform applications. This project targets .NET 8 and is intended to run on x64 machines.
 

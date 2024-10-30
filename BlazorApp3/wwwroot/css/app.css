@@ -1,83 +1,13 @@
-﻿/* Make the page fill the viewport and allow the content to scroll */
-.page {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
-}
-
-/* Dark styling for the top navigation */
-.top-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #1a1a1a; /* Darker background */
-    color: #f0f0f0; /* Light text color */
-    padding: 15px; /* Increased padding for height */
-    z-index: 10;
-}
-
-    .top-nav h1 {
-        font-size: 1.5em;
-        margin: 0;
-    }
-
-    .top-nav nav a {
-        color: #f0f0f0; /* Light text color for links */
-        text-decoration: none;
-        margin: 0 10px;
-    }
-
-        .top-nav nav a:hover {
-            color: #ffffff; /* Hover effect for links */
-        }
-
-/* Dark styling for the bottom navigation */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    background-color: #1a1a1a; /* Darker background */
-    padding: 15px 0; /* Increased padding for height */
-    z-index: 10;
-}
-
-    .bottom-nav .nav-icon {
-        color: #f0f0f0; /* Light text color for icons */
-        text-decoration: none;
-        font-size: 1.2em;
-    }
-
-        .bottom-nav .nav-icon:hover {
-            color: #ffffff; /* Hover effect for icons */
-        }
-
-/* Main content area to allow scrolling between fixed navs */
-.main-content {
-    flex-grow: 1;
-    overflow-y: auto;
-    padding-top: 70px; /* Offset for top navigation height */
-    padding-bottom: 70px; /* Offset for bottom navigation height */
-    text-align: center; /* Center the main content */
-}
-
-/* Styling for content */
-.content {
-    padding: 20px;
-}
-
-/* Default styling */
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+h1:focus {
+    outline: none;
+}
+
 a, .btn-link {
-    color: #006bb7;
+    color: #0071c1;
 }
 
 .btn-primary {
@@ -87,15 +17,11 @@ a, .btn-link {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 .content {
     padding-top: 1.1rem;
-}
-
-h1:focus {
-    outline: none;
 }
 
 .valid.modified:not([type=checkbox]) {
@@ -103,11 +29,11 @@ h1:focus {
 }
 
 .invalid {
-    outline: 1px solid #e50000;
+    outline: 1px solid red;
 }
 
 .validation-message {
-    color: #e50000;
+    color: red;
 }
 
 #blazor-error-ui {
@@ -139,22 +65,39 @@ h1:focus {
         content: "An error has occurred."
     }
 
-.status-bar-safe-area {
-    display: none;
+.loading-progress {
+    position: relative;
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    margin: 20vh auto 1rem auto;
 }
 
-@supports (-webkit-touch-callout: none) {
-    .status-bar-safe-area {
-        display: flex;
-        position: sticky;
-        top: 0;
-        height: env(safe-area-inset-top);
-        background-color: #f7f7f7;
-        width: 100%;
-        z-index: 1;
+    .loading-progress circle {
+        fill: none;
+        stroke: #e0e0e0;
+        stroke-width: 0.6rem;
+        transform-origin: 50% 50%;
+        transform: rotate(-90deg);
     }
 
-    .flex-column, .navbar-brand {
-        padding-left: env(safe-area-inset-left);
+        .loading-progress circle:last-child {
+            stroke: #1b6ec2;
+            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+            transition: stroke-dasharray 0.05s ease-in-out;
+        }
+
+.loading-progress-text {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
+}
+
+    .loading-progress-text:after {
+        content: var(--blazor-load-percentage-text, "Loading");
     }
+
+code {
+    color: #c02d76;
 }

@@ -3,7 +3,7 @@
 ## Links
 - [bootswatch-source](https://github.com/thomaspark/bootswatch)
 - [bootswatch-main](https://bootswatch.com/)
-- [blazostrap](blazorstrap.io)
+- [blazostrap](https://blazorstrap.io)
 - [bootstrap](https://getbootstrap.com/)
 
 ## Overview

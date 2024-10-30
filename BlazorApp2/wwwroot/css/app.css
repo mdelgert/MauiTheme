@@ -1,3 +1,77 @@
+/* Make the page fill the viewport and allow the content to scroll */
+.page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Dark styling for the top navigation */
+.top-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1a1a1a; /* Darker background */
+    color: #f0f0f0; /* Light text color */
+    padding: 15px; /* Increased padding for height */
+    z-index: 10;
+}
+
+    .top-nav h1 {
+        font-size: 1.5em;
+        margin: 0;
+    }
+
+    .top-nav nav a {
+        color: #f0f0f0; /* Light text color for links */
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+        .top-nav nav a:hover {
+            color: #ffffff; /* Hover effect for links */
+        }
+
+/* Dark styling for the bottom navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #1a1a1a; /* Darker background */
+    padding: 15px 0; /* Increased padding for height */
+    z-index: 10;
+}
+
+    .bottom-nav .nav-icon {
+        color: #f0f0f0; /* Light text color for icons */
+        text-decoration: none;
+        font-size: 1.2em;
+    }
+
+        .bottom-nav .nav-icon:hover {
+            color: #ffffff; /* Hover effect for icons */
+        }
+
+/* Main content area to allow scrolling between fixed navs */
+.main-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-top: 70px; /* Offset for top navigation height */
+    padding-bottom: 70px; /* Offset for bottom navigation height */
+    text-align: center; /* Center the main content */
+}
+
+/* Styling for content */
+.content {
+    padding: 20px;
+}
+
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -17,7 +91,7 @@ a, .btn-link {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 .content {
